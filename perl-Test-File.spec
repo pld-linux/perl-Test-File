@@ -4,7 +4,6 @@
 #
 %define		pdir	Test
 %define		pnam	File
-%include	/usr/lib/rpm/macros.perl
 Summary:	Test::File - test file attributes
 Summary(pl.UTF-8):	Test::File - testowanie atrybutów plików
 Name:		perl-Test-File
