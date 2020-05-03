@@ -19,6 +19,7 @@ URL:		https://metacpan.org/release/Test-File
 BuildRequires:	perl-ExtUtils-MakeMaker >= 6.64
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	rpmbuild(macros) >= 1.745
 %if %{with tests}
 BuildRequires:	perl(Test::Builder) >= 1.001006
 BuildRequires:	perl-Test-Builder-Tester >= 1.04
