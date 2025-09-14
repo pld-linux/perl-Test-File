@@ -1,21 +1,20 @@
 #
 # Conditional build:
-%bcond_without	tests		# do not perform "make test"
+%bcond_without	tests	# unit tests
 #
 %define		pdir	Test
 %define		pnam	File
 Summary:	Test::File - test file attributes
 Summary(pl.UTF-8):	Test::File - testowanie atrybutów plików
 Name:		perl-Test-File
-Version:	1.443
+Version:	1.995
 Release:	1
-# "same as perl itself, under the Atristic License 2.0"
 License:	Artistic v2.0
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/Test/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	ec8c6f6e940b454e110aaaa663fc761c
+Source0:	https://www.cpan.org/modules/by-module/Test/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	865b7e00fa68431596e1933d523506ab
 Patch0:		%{name}-foreign-tests.patch
-URL:		https://metacpan.org/release/Test-File
+URL:		https://metacpan.org/dist/Test-File
 BuildRequires:	perl-ExtUtils-MakeMaker >= 6.64
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -23,8 +22,8 @@ BuildRequires:	rpmbuild(macros) >= 1.745
 %if %{with tests}
 BuildRequires:	perl(Test::Builder) >= 1.001006
 BuildRequires:	perl-Test-Builder-Tester >= 1.04
-BuildRequires:	perl-Test-Simple >= 0.95
-BuildRequires:	perl-Test-utf8
+BuildRequires:	perl-Test-Simple >= 1
+BuildRequires:	perl-version >= 0.86
 %endif
 Requires:	perl(Test::Builder) >= 1.001006
 BuildArch:	noarch
@@ -62,7 +61,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc Changes
+%doc Changes SECURITY.md
 %{perl_vendorlib}/Test/File.pm
 %{_mandir}/man3/Test::File.3pm*
 %{_examplesdir}/%{name}-%{version}
